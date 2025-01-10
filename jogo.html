@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Info-Wiki - Mini-Game</title>
+    <title>Info-Wiki - Sorteio de Curiosidades</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="shortcut icon" href="icon-sapo.png" type="image/x-icon">
     <style>
@@ -33,24 +33,31 @@
             color: #d4edda !important;
         }
 
-        .offcanvas-header {
-            background-color: #4caf50;
-            color: white;
-        }
-
-        .offcanvas {
-            background-color: #f8f9fa;
-        }
-
         .card {
             border-radius: 15px;
             box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
             overflow: hidden;
+            display: none; /* Inicialmente escondido */
         }
 
         .card img {
             height: 200px;
             object-fit: cover;
+        }
+
+        #sortear-btn {
+            margin: 2rem 0;
+            padding: 10px 20px;
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        #sortear-btn:hover {
+            background-color: #45a049;
         }
 
         footer {
@@ -60,21 +67,44 @@
             text-align: center;
             margin-top: 2rem;
         }
+
+        .content-section {
+            margin-top: 2rem;
+            background: #fff;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .content-section h2 {
+            color: #4caf50;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+        }
+
+        .content-section p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .text-indent {
+            text-align: justify;
+            text-indent: 30px;
+        }
     </style>
 </head>
 
 <body>
-
     <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container-fluid">
             <img src="icon-sapo.png" width="45" height="45" class="pe-0 me-0" alt="Ícone de um sapo">
-
-            <a class="navbar-brand ms-5" href="index.html">Info-Wiki</a>
-            <button class="btn btn-outline-light ms-3" type="button" data-bs-toggle="offcanvas"
-                data-bs-target="#offcanvasPages" aria-controls="offcanvasPages">
+            <a class="navbar-brand ms-5 text-start" href="index.html">Info-Wiki</a>
+            <button class="btn btn-outline-light ms-3" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasPages" aria-controls="offcanvasPages">
                 Mais Páginas
             </button>
+        </div>
     </nav>
+
     <!-- Offcanvas -->
     <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasPages" aria-labelledby="offcanvasLabel">
         <div class="offcanvas-header">
@@ -83,27 +113,163 @@
         </div>
         <div class="offcanvas-body">
             <ul class="list-group">
-                <li class="list-group-item"><a href="index.html" class="text-decoration-none">Página Inicial</a>
-                </li>
-                <li class="list-group-item"><a href="cordados.html" class="text-decoration-none">Geral dos Cordados</a>
-                </li>
-                <li class="list-group-item"><a href="anfibios.html" class="text-decoration-none">Geral dos Anfíbios</a>
-                </li>
+                <li class="list-group-item"><a href="index.html" class="text-decoration-none">Página Inicial</a></li>
+                <li class="list-group-item"><a href="cordados.html" class="text-decoration-none">Geral dos Cordados</a></li>
+                <li class="list-group-item"><a href="anfibios.html" class="text-decoration-none">Geral dos Anfíbios</a></li>
                 <li class="list-group-item"><a href="anuros.html" class="text-decoration-none">Anuros</a></li>
                 <li class="list-group-item"><a href="urodelos.html" class="text-decoration-none">Urodelos</a></li>
                 <li class="list-group-item"><a href="apodes.html" class="text-decoration-none">Ápodes</a></li>
                 <li class="list-group-item"><a href="jogo.html" class="text-decoration-none">Mini-jogo</a></li>
+                <li class="list-group-item"><a href="curiosidades.html" class="text-decoration-none">Curiosidades</a></li>
             </ul>
         </div>
     </div>
+    <div class="container content-section">
+        <div class="container">
+            <h2 class="mt-5">Sorteador de Curiosidades</h2>
+            <p class="text-indent">Explore as curiosidades fascinantes sobre os anfíbios de forma interativa! Com o nosso sorteador, você pode descobrir diversas informações interessantes sobre incríveis esses animais.</p>
+            <p class="text-indent">As curiosidades abrangem aspectos fascinantes dos anfíbios, como suas habilidades especiais, adaptações incríveis e comportamentos únicos.</p>
+            <p class="text-indent">Clique no botão para começar a explorar e se surpreender com o mundo dos anfíbios!</p>
+            <div class="text-center"><button id="sortear-btn">Sortear Curiosidade</button></div>
 
-    
-    <!-- Footer -->
+     
+
+            <!-- Card 7 -->
+        <div class="row mt-4">
+            <div class="col-md-4 offset-md-4">
+                <div class="card" id="placeholder-card">
+                    <img src="img-curi/ponto.png" alt="???" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">Sorteio de curiosidades</h5>
+                        <p class="card-text">Clique no botão e descubra.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+            <div class="card" id="placeholder-card">
+                <img src="img-curi/ponto.png" alt="???" class="card-img-top">
+                <div class="card-body">
+                    <h5 class="card-title">Sorteio de curiosidades</h5>
+                    <p class="card-text">Clique no botão e descubra.</p>
+                </div>
+            </div>
+
+            <!-- Curiosidade Cards -->
+            <div class="row mt-4">
+                <div class="col-md-4 offset-md-4">
+                    
+            
+                    <!-- Card 1 -->
+                    
+                        <div class="card" id="card1">
+                            <img src="img-curi/curi-1.png" alt="Anuros" class="card-img-top">
+                            <div class="card-body">
+                                <h5 class="card-title">Pele Respira e Protege</h5>
+                                <p class="card-text">A pele dos anfíbios é fina e permeável, permitindo a troca de gases e funcionando como "pulmões extras". Isso os torna seguros à poluição, sendo indicadores ambientais. Eles também produzem muco protetor contra bactérias e predadores.</p>
+                            </div>
+                        </div>
+                
+            
+                    <!-- Card 2 -->
+                    
+                        <div class="card" id="card2">
+                            <img src="img-curi/curi-2.png" alt="Urodelos" class="card-img-top">
+                            <div class="card-body">
+                                <h5 class="card-title">Cores Vivas como Defesa</h5>
+                                <p class="card-text">Sapos venenosos, como os dendrobates, exibem cores vibrantes para alertar indicadores sobre sua toxicidade. Essa estratégia, chamada aposematismo, é uma defesa baseada na dieta de insetos tóxicos.</p>
+                            </div>
+                        </div>
+                
+            
+                    <!-- Card 3 -->
+                    
+                        <div class="card" id="card3">
+                            <img src="img-curi/curi-3.png" alt="Ápodes" class="card-img-top">
+                            <div class="card-body">
+                                <h5 class="card-title">Sapos que Congelem</h5>
+                                <p class="card-text">A rã-dos-bosques pode congelar durante o inverno, parando o coração e as funções necessárias. Ela produz glicose como "anticongelante" para proteger as células e descongelar na primavera.</p>
+                            </div>
+                        </div>
+                    
+            
+                    <!--Card 4 -->
+                    
+                        <div class="card" id="card4">
+                            <img src="img-curi/curi-4.png" alt="Anuros" class="card-img-top">
+                            <div class="card-body">
+                                <h5 class="card-title">Menor Anfíbio do Mundo</h5>
+                                <p class="card-text">Com apenas 6,45 milímetros, em média, o brasileiro sapinho pulga (Brachycephalus pulex) é o menor anfíbio do mundo.</p>
+                            </div>
+                        </div>
+                
+            
+                    <!-- Card 5 -->
+                    
+                        <div class="card" id="card5">
+                            <img src="img-curi/curi-5.png" alt="Ápodes" class="card-img-top">
+                            <div class="card-body">
+                                <h5 class="card-title">Maior Anfíbio do Mundo</h5>
+                                <p class="card-text">A salamandra-gigante-da-China é o maior anfíbio do mundo. Esses gigantes podem alcançar até 1,8 metros de comprimento e pesar mais de 60 kg.</p>
+                            </div>
+                        </div>
+                
+            
+                    <!-- Card 6 -->
+                    
+                        <div class="card" id="card6">
+                            <img src="img-curi/curi-6.png" alt="Urodelos" class="card-img-top">
+                            <div class="card-body">
+                                <h5 class="card-title">Cantores da Natureza</h5>
+                                <p class="card-text">Sapos machos cantam para atrair fêmeas e evitar rivais. Cada espécie tem um canto único, amplificado por uma bolsa vocal, criando verdadeiros coros na época de reprodução.</p>
+                            </div>
+                        </div>
+                
+            
+                    
+                    
+                    <!-- Adicione outros cards seguindo este modelo -->
+                </div>
+            </div>
+        </div>
+    </div>
     <footer>
         <p>&copy; 2025 Info-Wiki. Todos os direitos reservados.</p>
     </footer>
 
+    <script>
+        const cards = document.querySelectorAll('.card:not(#placeholder-card)');
+        const placeholderCard = document.getElementById('placeholder-card');
+        let shuffledCards = [];
+        let currentIndex = 0;
+
+        function shuffleCards() {
+            shuffledCards = Array.from(cards);
+            for (let i = shuffledCards.length - 1; i > 0; i--) {
+                const randomIndex = Math.floor(Math.random() * (i + 1));
+                [shuffledCards[i], shuffledCards[randomIndex]] = [shuffledCards[randomIndex], shuffledCards[i]];
+            }
+            currentIndex = 0;
+        }
+
+        function showNextCard() {
+            // Esconde o placeholder e outros cards
+            placeholderCard.style.display = 'none';
+            cards.forEach(card => (card.style.display = 'none'));
+
+            // Exibe o próximo card
+            if (currentIndex >= shuffledCards.length) {
+                shuffleCards();
+            }
+            shuffledCards[currentIndex].style.display = 'block';
+            currentIndex++;
+        }
+
+        document.getElementById('sortear-btn').addEventListener('click', showNextCard);
+        shuffleCards();
+        placeholderCard.style.display = 'block'; // Exibe o placeholder inicialmente
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 
 </html>
